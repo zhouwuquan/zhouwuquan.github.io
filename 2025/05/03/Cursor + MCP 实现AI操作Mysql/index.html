@@ -3,29 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Cursor + MCP 实现AI操作Redis | 未知的世界</title>
+  <title>Cursor + MCP 实现AI操作Mysql | 未知的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Zhouwq,Zhouwq's Blog" />
   
-  <meta name="description" content="1、安装Window版本的redisRedis下载：https:&#x2F;&#x2F;github.com&#x2F;microsoftarchive&#x2F;redis&#x2F;releases 2、配置MCP工具RedisCursor配置: 123456789&#123;  &quot;mcpServers&quot;: &#123;    &quot;redis&quot;: &#123;      &quot;command&amp;quo">
+  <meta name="description" content="1、安装依赖npm install -g @kevinwatt&#x2F;mysql-mcp 2、配置MCP工具MysqlCursor配置: 123456789101112131415161718&#123;  &quot;mcpServers&quot;: &#123;    &quot;mysql&quot;: &#123;      &quot;command&quot;: &quot;np">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cursor + MCP 实现AI操作Redis">
-<meta property="og:url" content="http://example.com/2025/05/01/Cursor%20+%20MCP%20%E5%AE%9E%E7%8E%B0AI%E6%93%8D%E4%BD%9CRedis/index.html">
+<meta property="og:title" content="Cursor + MCP 实现AI操作Mysql">
+<meta property="og:url" content="http://example.com/2025/05/03/Cursor%20+%20MCP%20%E5%AE%9E%E7%8E%B0AI%E6%93%8D%E4%BD%9CMysql/index.html">
 <meta property="og:site_name" content="未知的世界">
-<meta property="og:description" content="1、安装Window版本的redisRedis下载：https:&#x2F;&#x2F;github.com&#x2F;microsoftarchive&#x2F;redis&#x2F;releases 2、配置MCP工具RedisCursor配置: 123456789&#123;  &quot;mcpServers&quot;: &#123;    &quot;redis&quot;: &#123;      &quot;command&amp;quo">
+<meta property="og:description" content="1、安装依赖npm install -g @kevinwatt&#x2F;mysql-mcp 2、配置MCP工具MysqlCursor配置: 123456789101112131415161718&#123;  &quot;mcpServers&quot;: &#123;    &quot;mysql&quot;: &#123;      &quot;command&quot;: &quot;np">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503203256.png">
-<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503203948.png">
-<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503204347.png">
-<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503204739.png">
-<meta property="article:published_time" content="2025-05-01T06:49:00.000Z">
-<meta property="article:modified_time" content="2025-05-01T06:49:00.000Z">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504043738.png">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504044056.png">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504045352.png">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050029.png">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050335.png">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050653.png">
+<meta property="og:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050948.png">
+<meta property="article:published_time" content="2025-05-03T08:09:23.432Z">
+<meta property="article:modified_time" content="2025-05-03T21:09:57.945Z">
 <meta property="article:author" content="Wuquan Zhou">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="MCP">
+<meta property="article:tag" content="Mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503203256.png">
+<meta name="twitter:image" content="http://example.com/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504043738.png">
   
   
     <link rel="icon" href="images/logo.png">
@@ -111,27 +115,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Cursor + MCP 实现AI操作Redis" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Cursor + MCP 实现AI操作Mysql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Cursor + MCP 实现AI操作Redis
+      Cursor + MCP 实现AI操作Mysql
     </h1>
     <div class="post-title-bar">
       <ul>
           
-              <li>
-                  <i class="fa fa-book"></i>
-                  
-                      <a href="/categories/AI/">AI</a>
-                  
-              </li>
-          
         <li>
-          <i class="fa fa-calendar"></i>  2025-05-01
+          <i class="fa fa-calendar"></i>  2025-05-03
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -147,18 +144,20 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="1、安装Window版本的redis"><a href="#1、安装Window版本的redis" class="headerlink" title="1、安装Window版本的redis"></a>1、安装Window版本的redis</h1><p>Redis下载：<a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></p>
-<h1 id="2、配置MCP工具Redis"><a href="#2、配置MCP工具Redis" class="headerlink" title="2、配置MCP工具Redis"></a>2、配置MCP工具Redis</h1><p>Cursor配置:<br><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503203256.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;mcpServers&quot;: &#123;</span><br><span class="line">    &quot;redis&quot;: &#123;</span><br><span class="line">      &quot;command&quot;: &quot;npx&quot;,</span><br><span class="line">      &quot;args&quot;: [&quot;redis-mcp&quot;, &quot;--redis-host&quot;, &quot;localhost&quot;, &quot;--redis-port&quot;, &quot;6379&quot;],</span><br><span class="line">      &quot;disabled&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3、使用AI调用MCP工具实现Redis增删改查"><a href="#3、使用AI调用MCP工具实现Redis增删改查" class="headerlink" title="3、使用AI调用MCP工具实现Redis增删改查"></a>3、使用AI调用MCP工具实现Redis增删改查</h1><h2 id="3-1、新增-查找"><a href="#3-1、新增-查找" class="headerlink" title="3.1、新增&amp;查找"></a>3.1、新增&amp;查找</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503203948.png"></p>
-<h2 id="3-2、修改"><a href="#3-2、修改" class="headerlink" title="3.2、修改"></a>3.2、修改</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503204347.png"></p>
-<h2 id="3-3、删除"><a href="#3-3、删除" class="headerlink" title="3.3、删除"></a>3.3、删除</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250503204739.png"></p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>1、<a target="_blank" rel="noopener" href="https://github.com/farhankaz/redis-mcp">https://github.com/farhankaz/redis-mcp</a></p>
+            <h1 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h1><p>npm install -g @kevinwatt&#x2F;mysql-mcp<br><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504043738.png"></p>
+<h1 id="2、配置MCP工具Mysql"><a href="#2、配置MCP工具Mysql" class="headerlink" title="2、配置MCP工具Mysql"></a>2、配置MCP工具Mysql</h1><p>Cursor配置:<br><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504044056.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;mcpServers&quot;: &#123;</span><br><span class="line">    &quot;mysql&quot;: &#123;</span><br><span class="line">      &quot;command&quot;: &quot;npx&quot;,</span><br><span class="line">      &quot;args&quot;: [</span><br><span class="line">        &quot;-y&quot;,</span><br><span class="line">        &quot;@kevinwatt/mysql-mcp&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;env&quot;: &#123;</span><br><span class="line">        &quot;MYSQL_HOST&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">        &quot;MYSQL_PORT&quot;: &quot;3306&quot;,</span><br><span class="line">        &quot;MYSQL_USER&quot;: &quot;root&quot;,</span><br><span class="line">        &quot;MYSQL_PASS&quot;: &quot;1234&quot;,</span><br><span class="line">        &quot;MYSQL_DB&quot;: &quot;mcp_test&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3、使用AI调用MCP工具实现Mysql增删改查"><a href="#3、使用AI调用MCP工具实现Mysql增删改查" class="headerlink" title="3、使用AI调用MCP工具实现Mysql增删改查"></a>3、使用AI调用MCP工具实现Mysql增删改查</h1><h2 id="3-1、新建表Student-id-name-create-by-create-time-update-by-update-time"><a href="#3-1、新建表Student-id-name-create-by-create-time-update-by-update-time" class="headerlink" title="3.1、新建表Student(id,name,create_by,create_time,update_by,update_time)"></a>3.1、新建表Student(id,name,create_by,create_time,update_by,update_time)</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504045352.png"></p>
+<h2 id="3-2、生成测试数据"><a href="#3-2、生成测试数据" class="headerlink" title="3.2、生成测试数据"></a>3.2、生成测试数据</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050029.png"></p>
+<h2 id="3-3、查询测试数据"><a href="#3-3、查询测试数据" class="headerlink" title="3.3、查询测试数据"></a>3.3、查询测试数据</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050335.png"></p>
+<h2 id="3-4、修改测试数据"><a href="#3-4、修改测试数据" class="headerlink" title="3.4、修改测试数据"></a>3.4、修改测试数据</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050653.png"></p>
+<h2 id="3-5、删除测试数据"><a href="#3-5、删除测试数据" class="headerlink" title="3.5、删除测试数据"></a>3.5、删除测试数据</h2><p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20250504050948.png"></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>1、<a target="_blank" rel="noopener" href="https://github.com/kevinwatt/mysql-mcp">https://github.com/kevinwatt/mysql-mcp</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2025年05月01日 14:49</p>
-        <p>原始链接： <a class="post-url" href="/2025/05/01/Cursor%20+%20MCP%20%E5%AE%9E%E7%8E%B0AI%E6%93%8D%E4%BD%9CRedis/" title="Cursor + MCP 实现AI操作Redis">http://example.com/2025/05/01/Cursor%20+%20MCP%20%E5%AE%9E%E7%8E%B0AI%E6%93%8D%E4%BD%9CRedis/</a></p>
+        <p>最后更新： 2025年05月04日 05:09</p>
+        <p>原始链接： <a class="post-url" href="/2025/05/03/Cursor%20+%20MCP%20%E5%AE%9E%E7%8E%B0AI%E6%93%8D%E4%BD%9CMysql/" title="Cursor + MCP 实现AI操作Mysql">http://example.com/2025/05/03/Cursor%20+%20MCP%20%E5%AE%9E%E7%8E%B0AI%E6%93%8D%E4%BD%9CMysql/</a></p>
         <footer>
             <a href="http://example.com">
                 <img src="/images/logo.png" alt="Wuquan Zhou">
@@ -186,6 +185,8 @@
       
     <a href="/tags/MCP/" class="color4">MCP</a>
       
+    <a href="/tags/Mysql/" class="color1">Mysql</a>
+      
   </li>
 
         </ul>
@@ -197,23 +198,18 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85Window%E7%89%88%E6%9C%AC%E7%9A%84redis"><span class="post-toc-text">1、安装Window版本的redis</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AEMCP%E5%B7%A5%E5%85%B7Redis"><span class="post-toc-text">2、配置MCP工具Redis</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8AI%E8%B0%83%E7%94%A8MCP%E5%B7%A5%E5%85%B7%E5%AE%9E%E7%8E%B0Redis%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="post-toc-text">3、使用AI调用MCP工具实现Redis增删改查</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1%E3%80%81%E6%96%B0%E5%A2%9E-%E6%9F%A5%E6%89%BE"><span class="post-toc-text">3.1、新增&amp;查找</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2%E3%80%81%E4%BF%AE%E6%94%B9"><span class="post-toc-text">3.2、修改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3%E3%80%81%E5%88%A0%E9%99%A4"><span class="post-toc-text">3.3、删除</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="post-toc-text">参考文献</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="post-toc-text">1、安装依赖</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AEMCP%E5%B7%A5%E5%85%B7Mysql"><span class="post-toc-text">2、配置MCP工具Mysql</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8AI%E8%B0%83%E7%94%A8MCP%E5%B7%A5%E5%85%B7%E5%AE%9E%E7%8E%B0Mysql%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="post-toc-text">3、使用AI调用MCP工具实现Mysql增删改查</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1%E3%80%81%E6%96%B0%E5%BB%BA%E8%A1%A8Student-id-name-create-by-create-time-update-by-update-time"><span class="post-toc-text">3.1、新建表Student(id,name,create_by,create_time,update_by,update_time)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2%E3%80%81%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="post-toc-text">3.2、生成测试数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3%E3%80%81%E6%9F%A5%E8%AF%A2%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="post-toc-text">3.3、查询测试数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4%E3%80%81%E4%BF%AE%E6%94%B9%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="post-toc-text">3.4、修改测试数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-5%E3%80%81%E5%88%A0%E9%99%A4%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="post-toc-text">3.5、删除测试数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="post-toc-text">参考文献</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2025/05/03/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          示例
-        
-      </span>
-    </a>
   
+    <a href="/2025/05/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">示例</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
